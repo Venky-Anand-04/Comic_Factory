@@ -1,0 +1,89 @@
+<%- include("partials/header.ejs") %>
+<h1>Add New Comic</h1>
+<div class="container mt-3">
+	<form action="/comics" method="POST">
+	  <div class="mb-3">
+		<label for="title" class="form-label">Title</label>
+		<input type="text" class="form-control" name="title" placeholder="e.g. Batman" autofocus>
+		
+	  </div>
+	  <div class="mb-3">
+		<label for="description" class="form-label">Description</label>
+		<textarea class="form-control" name="description"></textarea>
+	  </div>
+	<div class="mb-3">
+		<label for="image" class="form-label">Image</label>
+		<input type="text" class="form-control" name="image" placeholder="Image link">
+		
+	</div>
+	<div class="mb-3">
+		<label for="publisherName" class="form-label">Publisher</label>
+		<input type="text" class="form-control" name="publisherName" placeholder="Publisher Name">
+		
+	</div>
+	<div class="mb-3">
+		<label for="date" class="form-label">Date of Issue</label>
+		<input type="date" class="form-control" name="date">
+		
+	</div>
+	<div class="mb-3">
+		<label for="distributerNo" class="form-label">Distribution Number</label>
+		<input type="number" class="form-control" name="distributerNo" placeholder="Distribution Number">
+		
+	</div>
+	<div class="mb-3">
+		<label for="genre" class="form-label">Genre</label>
+		<select class="form-control" id="genre" name="genre">
+			<option disabled selected>--Choose-below--</option>
+			<option>Anime</option>
+			<option>Manga</option>
+			<option>Sci-Fi</option>
+			<option>Horror</option>
+			<option>Thriller</option>
+			<option>Fantasy</option>
+		</select>
+		
+	</div>
+	<div class="mb-3">
+		<label for="color" class="form-label">Colored? </label>
+		<input type="checkbox" class="form-control form-check-input" name="color" placeholder="Image link">		
+	</div>
+	<div class="mb-3">
+		<label for="pageCount" class="form-label">Page Count</label>
+		<input type="text" class="form-control" name="pageCount" placeholder="e.g. 32">
+		
+	</div>
+	
+	  <button type="submit" class="btn btn-primary mt-2 mb-5">Submit</button>
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--<h1>
+		Add New Comics
+	</h1>
+	<form action="/comics" method="POST">
+		<label for="title">Title</label>
+		<input type="text" name="title" placeholder="e.g Batman"autofocus>
+		<label for="description">Description</label>
+		<input type="text" name="description" placeholder="Description">
+		<label for="image">Image Link</label>
+		<input type="text" name="image" placeholder="https://image.png or jpg or any img format">
+		<br/>
+		<br/>
+		<button type="submit">Submit</button>
+	</form>
+	--!>
+
+
+
+
+<%- include("partials/footer.ejs") %>

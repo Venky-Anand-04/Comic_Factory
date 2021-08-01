@@ -1,0 +1,61 @@
+<%- include("partials/header.ejs") %>
+<h1>Edit the Comic</h1>
+<div class="container mt-3">
+	<form action="/comics/<%= comic._id %>?_method=PUT" method="POST">
+	  <div class="mb-3">
+		<label for="title" class="form-label">Title</label>
+		<input type="text" class="form-control" name="title" value="<%= comic.title%>">
+		
+	  </div>
+	  <div class="mb-3">
+		<label for="description" class="form-label">Description</label>
+		<textarea class="form-control" name="description"><%= comic.description%></textarea>
+	  </div>
+	<div class="mb-3">
+		<label for="image" class="form-label">Image</label>
+		<input type="text" class="form-control" name="image" value="<%= comic.image%>">
+		
+	</div>
+	<div class="mb-3">
+		<label for="publisherName" class="form-label">Publisher</label>
+		<input type="text" class="form-control" name="publisherName" value="<%= comic.publisher%>">
+		
+	</div>
+	<div class="mb-3">
+		<label for="date" class="form-label">Date of Issue</label>
+		<input type="date" class="form-control" name="date" value="<%= comic.date.toISOString().split('T')[0]%>">
+		
+	</div>
+	<div class="mb-3">
+		<label for="distributerNo" class="form-label">Distribution Number</label>
+		<input type="number" class="form-control" name="distributerNo" value="<%= comic.distributerNo %>">
+		
+	</div>
+	<div class="mb-3">
+		<label for="genre" class="form-label">Genre</label>
+		<select class="form-control" id="genre" name="genre">
+			<option disabled >--Choose-below--</option>
+			<option <%= comic.genre === "anime" ? "selected" : "" %>>Anime</option>
+			<option <%= comic.genre === "manga" ? "selected" : "" %>>Manga</option>
+			<option <%= comic.genre === "sci-fi" ? "selected" : "" %>>Sci-Fi</option>
+			<option <%= comic.genre === "horror" ? "selected" : "" %>>Horror</option>
+			<option <%= comic.genre === "thriller" ? "selected" : "" %>>Thriller</option>
+			<option <%= comic.genre === "fantasy" ? "selected" : "" %>>Fantasy</option>
+		</select>
+		
+	</div>
+	<div class="mb-3">
+		<label for="color" class="form-label">Colored? </label>
+		<input type="checkbox" class="form-control form-check-input" name="color" <%= comic.color ? "checked" : "" %>>		
+	</div>
+	<div class="mb-3">
+		<label for="pageCount" class="form-label">Page Count</label>
+		<input type="text" class="form-control" name="pageCount" value="<%= comic.pageCount %>">
+		
+	</div>
+	<div class="container comic-edit-btns">
+	<button type="submit" class="btn btn-primary mt-2 mb-5">Submit</button>
+	 </div>
+	  
+	</form>
+</div>

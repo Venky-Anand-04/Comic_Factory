@@ -1,0 +1,88 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+	<div class="row mt-4">
+		<div class="col-6 show_image-container">
+			<img src="<%= comic.image %>" alt="Pic of the Comic">
+		</div>
+		<div class="col-5 details-container">
+			<h1><%= comic.title %></h1>
+			<p><%= comic.description %></p>
+			<table class="table table-dark table-hover table-bordered border-Info">  
+				  <tbody>
+					<tr>
+					  <th scope="row">Genre</th>
+					  <td><%= comic.genre%></td>
+					</tr>
+					<tr>
+						<th scope="row">Date</th>
+						<td><%= comic.distributerNo%></td>
+					</tr>
+					 <tr>
+						<th scope="row">Coloured?</th>
+						<td><%= comic.color%></td>
+					</tr>
+					 <tr>
+						<th scope="row">Page Count</th>
+						<td><%= comic.pageCount%></td>
+					</tr>
+				  </tbody>
+			</table>
+			<a href="/comics/<%= comic._id%>/edit">
+				<button class= "btn btn-outline-info btn-edit btn-lg btn-block mb-2"> EDIT</button>
+			</a>
+			<form action="/comics/<%= comic._id%>?_method=DELETE" method="POST">
+				<button class="btn btn-outline-danger btn-delete btn-lg btn-block">DELETE</button>
+				
+			</form>
+		</div>
+	</div>
+	<!-- THIS IS COMMENTS SECTION  -->
+	<div class="comments-container">
+		<div class="container comments-top-header">
+			<div class="comments-header row comment-header mt-4">
+				Comments
+			</div>
+			<div>
+				<a href="/comics/<%=comic._id%>/comments/new"> 
+					<button class="btn">
+						Add Comment   <i class="fas fa-plus"></i>
+					</button>
+				</a>
+			</div>
+		</div>
+		
+		<% comments.forEach((comment)=>{ %>
+		<div class="row comment-container my-4">
+			<div class="user">
+				<%= comment.user.username %>
+			</div>
+			<div class="comments">
+				<%= comment.text %>
+			</div>
+			<!-- Adding EDIT and DELETE BUTTON...-->
+			<div class="comments-actions">
+				<a href="/comics/<%=comic._id%>/comments/<%= comment._id%>/edit">
+					<button class="btn">
+						<i class="far fa-edit"></i>
+					</button>
+				</a>
+				<form action="/comics/<%=comic._id%>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+					<button class="btn">
+						<i class="far fa-trash-alt"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+		
+		
+		<% })%>
+	</div>
+	
+	
+</div>
+
+
+
+
+<%- include("partials/footer.ejs") %>

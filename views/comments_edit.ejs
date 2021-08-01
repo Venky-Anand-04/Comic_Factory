@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+	<form action="/comics/<%= comic._id%>/comments/<%= comment._id%>?_method=PUT" method="POST">
+		<h1>
+			Edit Comment
+		</h1>
+		<div class="form-group mb-3">
+		<label for="description" class="form-label">Description</label>
+		<textarea class="form-control" id="text" name="text" required><%= comment.text%></textarea>
+		</div>
+		
+		<button type="submit" class="btn btn-primary"> Submit Comment</button>
+	</form>
+</div>
+
+<%- include("partials/footer.ejs") %>
