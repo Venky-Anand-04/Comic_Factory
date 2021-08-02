@@ -14,9 +14,9 @@ const localStrategy = require("passport-local").Strategy
 const expressSession = require("express-session")
 
 //Config IMPORTS
-
+let config
 try{
-	var config = require("./config")
+	config = require("./config")
 	
 } catch (err) {
 	console.log("could not import config. This means you are not working locally")
