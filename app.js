@@ -31,8 +31,8 @@ const User = require("./models/user")
 //========================================================================
 //SEEDING THE DATABASE =====
 
-// const seed = require("./utils/seed")
-// seed();
+ // const seed = require("./utils/seed")
+ // seed();
 
 //Mongoose MongoDB Connection from Config.js
 mongoose.connect(config.db.connection, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true})
