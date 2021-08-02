@@ -15,8 +15,13 @@
 					  <td><%= comic.genre%></td>
 					</tr>
 					<tr>
-						<th scope="row">Date</th>
+						<th scope="row">Distribution Number</th>
 						<td><%= comic.distributerNo%></td>
+					</tr>
+					 <tr>
+						<th scope="row">Date</th>
+						 <% let newdate = JSON.stringify(comic.date).slice(1,11) %>
+						<td><%= newdate%></td>
 					</tr>
 					 <tr>
 						<th scope="row">Coloured?</th>
