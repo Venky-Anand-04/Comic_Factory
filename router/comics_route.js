@@ -36,9 +36,11 @@ router.post("/", isLoggedIn, async (req,res)=>{
 	}
 	try{
 		const comic = await Comic.create(newComic)
+		req.flash("success","Comic Created !!!")
 		res.redirect("/comics/" + comic._id)
 	} catch(err) {
 		console.log(err)
+		req.flash("error", "Error Creating Comic")
 		res.redirect("/")
 	}
 	
@@ -116,9 +118,11 @@ router.put("/:id", checkComicOwner, async (req,res) =>{
 	}
 	try{
 		const updatedComics = await Comic.findByIdAndUpdate(req.params.id,comic,{new: true}).exec()
+		req.flash("success","Comic Updated!!!")
 		res.redirect(`/comics/${req.params.id}`)
 	} catch(err) {
 		console.log(err)
+		req.flash("error","Error Updating Comic")
 		res.send("There ia an issue")
 	}
 })
@@ -126,10 +130,12 @@ router.put("/:id", checkComicOwner, async (req,res) =>{
 router.delete("/:id", checkComicOwner, async (req,res)=>{
 	try{
 		const deletedComic = await Comic.findByIdAndRemove(req.params.id).exec()
+		req.flash("success","Comic Deleted!!!")
 		res.redirect("/comics")
 	} catch(err) {
 		console.log(err)
-		res.send("You Broke it damnit")
+		req.flash("Error Deleting Comic!!!")
+		res.redirect("back")
 	}
 	
 })
