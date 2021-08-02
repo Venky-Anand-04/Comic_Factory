@@ -1,6 +1,24 @@
-<h1>
-	Landing Page
-</h1>
-<button>
-	<a href="/comics">Go to Comics</a>
-</button>
+<%- include("partials/landingheader") %>
+<div class="container row main-container">
+	<div class="container col profile-container">
+	<h2 class="header">
+	COMIC FACTORY
+		BY
+	VENKATESH ANANDAN
+	</h2>
+	<a href="/comics">
+		<button class="btn">
+			<img src="/image/check-this-button.svg" height="100" width="250" alt="CheckThisOut">
+		</button>
+	</a>
+	</div>
+	<div class="container col img-container">	
+		<img class="image1" src="https://images-na.ssl-images-amazon.com/images/I/81ix2iemSzL.jpg" height="100" width="100" alt="Batman Comic">
+		<img class="image2" src="https://i.annihil.us/u/prod/marvel/i/mg/f/10/598363848588e/detail.jpg" height="100" width="100" alt="Spideman Comic">
+		<img class="image3" src="https://m.media-amazon.com/images/I/41Obc5q0gUL.jpg" height="100" width="100" alt="Thor Comic">	
+	</div>
+
+</div>
+
+
+<%- include("partials/landingfooter") %>
