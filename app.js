@@ -68,7 +68,7 @@ app.use(morgan("dev"))
 app.use(express.static("public"))
 //ExpressSession =======
 app.use(expressSession({
-	secret: process.env.ES_SECRET || config.ES.secret ,
+	secret: "bahdbiagnfgodddnoofi@31324094jgffovviifss" ,
 	resave: false,
 	saveUninitialized: false,
 }))
