@@ -28,6 +28,7 @@
 					</tr>
 				  </tbody>
 			</table>
+			<% if(user && user.username === comic.owner.username) { %>
 			<a href="/comics/<%= comic._id%>/edit">
 				<button class= "btn btn-outline-info btn-edit btn-lg btn-block mb-2"> EDIT</button>
 			</a>
@@ -35,6 +36,7 @@
 				<button class="btn btn-outline-danger btn-delete btn-lg btn-block">DELETE</button>
 				
 			</form>
+			<% } %>
 		</div>
 	</div>
 	<!-- THIS IS COMMENTS SECTION  -->
@@ -62,16 +64,18 @@
 			</div>
 			<!-- Adding EDIT and DELETE BUTTON...-->
 			<div class="comments-actions">
-				<a href="/comics/<%=comic._id%>/comments/<%= comment._id%>/edit">
-					<button class="btn">
-						<i class="far fa-edit"></i>
-					</button>
-				</a>
-				<form action="/comics/<%=comic._id%>/comments/<%= comment._id%>?_method=DELETE" method="POST">
-					<button class="btn">
-						<i class="far fa-trash-alt"></i>
-					</button>
-				</form>
+				<% if(user && user.username === comment.user.username) { %>
+					<a href="/comics/<%=comic._id%>/comments/<%= comment._id%>/edit">
+						<button class="btn">
+							<i class="far fa-edit"></i>
+						</button>
+					</a>
+					<form action="/comics/<%=comic._id%>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+						<button class="btn">
+							<i class="far fa-trash-alt"></i>
+						</button>
+					</form>
+				<% } %>
 			</div>
 		</div>
 		
