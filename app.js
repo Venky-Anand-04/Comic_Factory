@@ -68,7 +68,7 @@ app.use(morgan("dev"))
 app.use(express.static("public"))
 //ExpressSession =======
 app.use(expressSession({
-	secret: "bahdbiagnfgodddnoofi@31324094jgffovviifss" ,
+	secret: process.env.ES_SECRET || config.ES.secret ,
 	resave: false,
 	saveUninitialized: false,
 }))
@@ -105,6 +105,6 @@ app.use("/comics/:id/comments",commentRoute)
 
 
 //Listening Port
-app.listen(process.env.PORT || 3000,()=>{
-	console.log("yelp is running...")
+app.listen(process.env.PORT || 3000 ,()=>{
+	console.log("server is running...")
 })
