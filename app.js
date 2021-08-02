@@ -5,7 +5,8 @@
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
-const mongoose = require("mongoose");
+const flash = require("connect-flash")
+const mongoose = require("mongoose")
 const methodOverride = require("method-override")
 const morgan = require("morgan")
 const passport = require("passport")
@@ -56,6 +57,8 @@ app.use(expressSession({
 	resave: false,
 	saveUninitialized: false,
 }))
+//Flash Config ==================
+app.use(flash())
 // Passport Config ==============
 app.use(passport.initialize())
 app.use(passport.session())   //Allows Persistant Session
