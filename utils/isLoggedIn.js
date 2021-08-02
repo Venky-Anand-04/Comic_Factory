@@ -2,6 +2,7 @@
 	if (req.isAuthenticated()) {
 		return next()
 	} else{
+		req.flash("error","Heyy!!, You must be logged in to do that!.")
 		res.redirect("/login")
 	}
 }
