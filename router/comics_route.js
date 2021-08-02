@@ -62,6 +62,16 @@ router.get("/search", async(req,res) =>{
 	}
 	
 })
+// COMIC GENRE ROUTE
+router.get("/genre/:genre", async(req,res) =>{
+	const validgenres = ["anime", "manga", "sci-fi", "thriller", "horrer"]
+	if (validgenres.includes(req.params.genre.toLowerCase())) {
+		const comics = await Comic.find({genre: req.params.genre}).exec()
+		res.render("comics",{comics})
+	} else{
+		res.send("please enter a Valid Comic Genre")
+	}
+})
 
 //COMIC SHOW ROUTE
 router.get("/:id", async (req,res)=>{
